@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: docker-testapp
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: docker-testapp
+
+  template:
+    metadata:
+      labels:
+        app: docker-testapp
+
+    spec:
+      containers:
+        - name: docker-testapp
+          image: tomarakansha151/docker-testapp:latest
+          ports:
+            - containerPort: 5050
